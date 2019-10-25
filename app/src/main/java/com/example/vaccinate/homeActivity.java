@@ -10,17 +10,25 @@ import android.widget.EditText;
 
 public class homeActivity extends AppCompatActivity {
 
-    login_db myDb = new login_db(this);
-    Button registerButton;
-    EditText uNameEditText,passEditText;
+    Button registerButton,loginButton;
+    EditText uNameEditText,passwordEditText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         registerButton = findViewById(R.id.registerButton);
+        loginButton = findViewById(R.id.loginButton);
         uNameEditText = findViewById(R.id.uNameEditText);
-        passEditText  = findViewById(R.id.passEditText);
+        passwordEditText  = findViewById(R.id.passwordEditText);
 
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(homeActivity.this, parents_homepage.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
